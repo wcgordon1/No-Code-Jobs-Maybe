@@ -1,0 +1,173 @@
+---
+import { Code } from "astro/components";
+const features = [
+  {
+    title: "WeWeb Development",
+    description:
+      "Build powerful web apps with JavaScript reactivity and custom logic.",
+  },
+  {
+    title: "Xano Backend",
+    description: "Create scalable APIs and databases with NoSQL flexibility.",
+  },
+];
+---
+
+<section class="bg-white">
+  <div class="mx-auto max-w-7xl lg:px-16 md:px-12 px-8 xl:px-24 py-36">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-start">
+      <div>
+        <span class="text-sm font-medium tracking-wide text-blue-600 uppercase"
+          >No-Code Platforms</span
+        >
+        <h2
+          class="text-purple-900 font-semibold tracking-tight lg:text-5xl mt-6 text-3xl">
+          WeWeb & Xano No Code Jobs
+        </h2>
+        <p class="text-slate-500 mt-5">
+          Modern no-code development combines WeWeb's powerful frontend capabilities with Xano's robust backend solutions.
+          <br />
+          <br />
+          Build full-stack applications without traditional coding, while maintaining the flexibility to add custom logic when needed.
+        </p>
+        <ul
+          role="list"
+          class="grid grid-cols-2 gap-4 list-none lg:gap-6 mt-12">
+          {
+            features.map((feature) => (
+              <li>
+                <p class="font-semibold text-purple-900 text-base">
+                  {feature.title}
+                </p>
+                <div class="mt-2 text-slate-500 text-sm">
+                  {feature.description}
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="lg:mt-0 mt-12 h-full lg:order-first">
+        <div class="lg:mt-0 mt-12 h-full">
+          <div
+            x-data="{
+        tabSelected: 1,
+        tabId: $id('tabs'),
+        tabButtonClicked(tabButton){
+            this.tabSelected = tabButton.id.replace(this.tabId + '-', '');
+            this.tabRepositionMarker(tabButton);
+        },
+        tabRepositionMarker(tabButton){
+            this.$refs.tabMarker.style.width=tabButton.offsetWidth + 'px';
+            this.$refs.tabMarker.style.height=tabButton.offsetHeight + 'px';
+            this.$refs.tabMarker.style.left=tabButton.offsetLeft + 'px';
+        },
+        tabContentActive(tabContent){
+            return this.tabSelected == tabContent.id.replace(this.tabId + '-content-', '');
+        }
+    }"
+            x-init="tabRepositionMarker($refs.tabButtons.firstElementChild);"
+            class="relative lg:rounded-3xl">
+            <div
+              x-ref="tabButtons"
+              class="relative inline-grid items-center justify-center w-full h-10 grid-cols-2 p-1 bg-slate-100 rounded-full select-none">
+              <button
+                :id="$id(tabId)"
+                @click="tabButtonClicked($el);"
+                type="button"
+                class="relative z-20 inline-flex items-center justify-center w-full h-8 px-3 text-sm font-medium transition-all rounded-full cursor-pointer whitespace-nowrap"
+                >WeWeb</button
+              >
+              <button
+                :id="$id(tabId)"
+                @click="tabButtonClicked($el);"
+                type="button"
+                class="relative z-20 inline-flex items-center justify-center w-full h-8 px-3 text-sm font-medium transition-all rounded-md cursor-pointer whitespace-nowrap"
+                >Xano</button
+              >
+              <div
+                x-ref="tabMarker"
+                class="absolute left-0 z-10 w-1/2 h-full duration-300 ease-out"
+                x-cloak>
+                <div class="w-full h-full bg-white rounded-full shadow-sm">
+                </div>
+              </div>
+            </div>
+            <div
+              class="relative w-full mt-2 content p-4 bg-[#14162a] rounded-3xl">
+              <div
+                :id="$id(tabId + '-content')"
+                x-show="tabContentActive($el)"
+                class="relative">
+                <section
+                  class="text-xs font-mono mt-4 rounded-3xl hadow-2xl overflow-hidden h-full p-4">
+                  <Code
+                    code={`// WeWeb Frontend Development
+
+const wewebFeatures = {
+  reactivity: {
+    state: ['Computed Properties', 'Watchers', 'Dynamic Bindings'],
+    components: ['Reusable Blocks', 'Dynamic Lists', 'Custom Elements']
+  },
+  javascript: {
+    logic: ['Custom Functions', 'Event Handlers', 'Workflows'],
+    dataFlow: ['API Integration', 'State Management', 'Props System']
+  },
+  styling: {
+    responsive: ['Flexbox', 'Grid', 'Breakpoints'],
+    design: ['Variables', 'Themes', 'Components']
+  }
+};
+
+// Common WeWeb Patterns
+const patterns = [
+  'Component Composition',
+  'Dynamic Routing',
+  'Data Binding'
+];`}
+                    lang="js"
+                    theme="css-variables"
+                  />
+                </section>
+              </div>
+              <div
+                :id="$id(tabId + '-content')"
+                x-show="tabContentActive($el)"
+                class="relative"
+                x-cloak>
+                <section
+                  class="text-xs font-mono mt-4 rounded-3xl hadow-2xl overflow-hidden h-full p-4">
+                  <Code
+                    code={`// Xano Backend Development
+
+const xanoBackend = {
+  database: {
+    PostgreSQL: ['Collections', 'Relations', 'Indexes'],
+    queries: ['Filters', 'Aggregations', 'Joins'],
+    security: ['Authentication', 'Permissions', 'API Keys']
+  },
+  endpoints: {
+    rest: ['GET', 'POST', 'PUT', 'DELETE'],
+    functions: ['Workflows', 'Triggers', 'Schedules'],
+    integration: ['Third-party APIs', 'Webhooks', 'Events']
+  }
+};
+
+// API Features
+const apiFeatures = {
+  auth: 'JWT Tokens',
+  cache: 'Redis Integration',
+  scaling: 'Auto-scaling Infrastructure'
+};`}
+                    lang="js"
+                    theme="css-variables"
+                  />
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,181 @@
+---
+import { Code } from "astro/components";
+const features = [
+  {
+    title: "Bubble.io AI Integration",
+    description:
+      "Build AI-powered apps with OpenAI, custom workflows, and API connections.",
+  },
+  {
+    title: "Python AI Development",
+    description: "Machine learning, NLP, and custom AI model development.",
+  },
+];
+---
+<section class="relative overflow-hidden bg-white">
+  <div class="bg-purple-900 max-w-7xl mx-auto rounded-3xl">
+    <div class="mx-auto max-w-7xl lg:px-16 md:px-12 px-8 xl:px-24 py-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-start">
+        <div>
+          <span class="text-sm font-medium text-slate-300 tracking-wide uppercase"
+            >AI App Development</span
+          >
+          <h2
+            class="text-white font-semibold tracking-tight lg:text-5xl mt-6 text-3xl">
+            Bubble.io & OpenAI No Code Jobs
+          </h2>
+          <p class="text-slate-300 mt-5 text-balance">
+            Build intelligent applications using Bubble.io's no-code platform with OpenAI integration.
+            Create chatbots, content generators, and AI-powered workflows without traditional coding.
+            <br />
+            <br />
+            Combine the power of Python's AI libraries with Bubble.io's visual development
+            for sophisticated machine learning applications.
+          </p>
+          <ul
+            role="list"
+            class="grid grid-cols-2 gap-4 list-none lg:gap-6 mt-12">
+            {
+              features.map((feature) => (
+                <li>
+                  <p class="font-semibold text-white text-base">
+                    {feature.title}
+                  </p>
+                  <div class="mt-2 text-slate-400 text-sm">
+                    {feature.description}
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="lg:mt-0 mt-12 h-full">
+          <div
+            x-data="{
+        tabSelected: 1,
+        tabId: $id('tabs'),
+        tabButtonClicked(tabButton){
+            this.tabSelected = tabButton.id.replace(this.tabId + '-', '');
+            this.tabRepositionMarker(tabButton);
+        },
+        tabRepositionMarker(tabButton){
+            this.$refs.tabMarker.style.width=tabButton.offsetWidth + 'px';
+            this.$refs.tabMarker.style.height=tabButton.offsetHeight + 'px';
+            this.$refs.tabMarker.style.left=tabButton.offsetLeft + 'px';
+        },
+        tabContentActive(tabContent){
+            return this.tabSelected == tabContent.id.replace(this.tabId + '-content-', '');
+        }
+    }"
+            x-init="tabRepositionMarker($refs.tabButtons.firstElementChild);"
+            class="relative lg:rounded-3xl lg:p-10 text-white">
+            <div
+              x-ref="tabButtons"
+              class="relative inline-grid items-center justify-center w-full h-10 grid-cols-2 p-1 bg-purple-900 border border-white/20 rounded-full select-none">
+              <button
+                :id="$id(tabId)"
+                @click="tabButtonClicked($el);"
+                type="button"
+                class="relative z-20 inline-flex items-center justify-center w-full h-8 px-3 text-sm font-medium transition-all rounded-full cursor-pointer whitespace-nowrap"
+                >Bubble.io</button
+              >
+              <button
+                :id="$id(tabId)"
+                @click="tabButtonClicked($el);"
+                type="button"
+                class="relative z-20 inline-flex items-center justify-center w-full h-8 px-3 text-sm font-medium transition-all rounded-md cursor-pointer whitespace-nowrap"
+                >Open AI</button
+              >
+              <div
+                x-ref="tabMarker"
+                class="absolute left-0 z-10 w-1/2 h-full duration-300 ease-out"
+                x-cloak>
+                <div class="w-full h-full bg-white/10 rounded-full shadow-sm">
+                </div>
+              </div>
+            </div>
+            <div class="relative w-full mt-2 content">
+              <div
+                :id="$id(tabId + '-content')"
+                x-show="tabContentActive($el)"
+                class="relative">
+                <section
+                  class="text-xs font-mono shadow-3xl mt-4 rounded-2xl overflowhidden h-full bg-[#14162a] p-4">
+                  <Code
+                    code={`// Bubble.io OpenAI Integration
+
+const openAIConfig = {
+  apiKey: process.env.OPENAI_API_KEY,
+  model: 'gpt-4-turbo-preview',
+  maxTokens: 1000
+};
+
+// OpenAI API Call 
+
+function callOpenAI(prompt, context) {
+  return {
+    messages: [
+      { role: 'system', content: context },
+      { role: 'user', content: prompt }
+    ],
+    functions: [{
+      name: 'process_bubble_response',
+      parameters: {
+        type: 'object',
+        properties: {
+          response: { type: 'string' },
+          sentiment: { type: 'string' },
+          keywords: { type: 'array', items: { type: 'string' }}
+        ...`}
+                    lang="js"
+                    theme="css-variables"
+                  />
+                </section>
+              </div>
+              <div
+                :id="$id(tabId + '-content')"
+                x-show="tabContentActive($el)"
+                class="relative"
+                x-cloak>
+                <section
+                  class="text-xs font-mono mt-4 rounded-3xl shadow-2xl overflow-hidden h-full bg-[#14162a] p-4">
+                  <Code
+                    code={`# Python AI Development
+
+import openai
+from transformers import pipeline
+import torch
+from sklearn.model_selection import train_test_split
+
+class AIModelManager:
+    def __init__(self):
+        self.nlp = pipeline("text-classification")
+        self.sentiment = pipeline("sentiment-analysis")
+        
+    def analyze_text(self, text):
+        return {
+            'classification': self.nlp(text),
+            'sentiment': self.sentiment(text)[0]
+        }
+
+# Custom ML Model
+
+class CustomAIModel(torch.nn.Module):
+    def __init__(self, input_size, hidden_size, num_classes):
+        super(CustomAIModel, self).__init__()
+        self.layer1 = torch.nn.Linear(input_size, hidden_size)
+        self.relu = torch.nn.ReLU()
+        self.layer2 = torch.nn.Linear(hidden_size, num_classes)
+...`}
+                    lang="python"
+                    theme="css-variables"
+                  />
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

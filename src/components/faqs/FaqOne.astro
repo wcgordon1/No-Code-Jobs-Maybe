@@ -1,0 +1,60 @@
+---
+// Define the FAQ data
+const faqs = [
+  {
+    question: "How do I post a job on No Code Jobs?",
+    answer: "Simply choose your preferred pricing plan and click 'Post a Job'. Our platform optimizes your listing with AI-powered job title suggestions, keyword optimization, and smart formatting to attract qualified no-code developers. We ensure maximum visibility across our network of no-code professionals.",
+  },
+  {
+    question: "What makes No Code Jobs different from general job boards?",
+    answer: "We're the only job board exclusively focused on no-code development talent. Our platform attracts professionals skilled in Webflow, Bubble, Zapier, Airtable and other leading no-code tools. With our specialized candidate pool, you'll find developers who understand modern no-code solutions and can deliver results quickly.",
+  },
+  {
+    question: "How long do job postings stay active?",
+    answer: "Single Post listings run for 30 days, Job Pack listings for 60 days, and Mega Pack listings include extended visibility. All plans include distribution across our partner network and Google Jobs. You can easily renew or upgrade your listing at any time.",
+  },
+  {
+    question: "How do you verify no-code developer skills?",
+    answer: "We validate candidates through our proprietary skill assessment system, checking proficiency in specific no-code platforms. This ensures you only see applicants with verified expertise in the tools you need, saving valuable screening time.",
+  },
+  {
+    question: "What hiring tools do you provide?",
+    answer: "All plans include our modern applicant tracking system with custom workflows, candidate ratings, and team collaboration tools. Premium plans add features like AI-powered candidate matching, automated screening, and analytics to optimize your hiring process.",
+  },
+  {
+    question: "What kind of support and results can I expect?",
+    answer: "Our average time-to-hire is just 48 hours, with a 92% successful placement rate. We provide email support for all plans, while Job Pack and Mega Pack users get priority support and dedicated account managers to help optimize their hiring strategy. We're committed to helping you build the perfect no-code development team.",
+  },
+];
+---
+
+<section class="bg-white">
+  <div
+    class="mx-auto max-w-7xl lg:px-16 md:px-12 px-8 xl:px-24 py-24">
+    <h2 class="inline-flex items-center text-blue-600">
+      <span class="text-base font-medium tracking-tight">FAQ</span>
+    </h2>
+    <h2
+      class="text-purple-900 font-semibold tracking-tight lg:text-5xl mt-6 text-3xl">
+      Frequent questions and answers
+    </h2>
+
+    <div
+      class="gap-x-2 gap-y-14 lg:gap-12 grid grid-cols-1 lg:grid-cols-3 mt-12">
+      {
+        faqs.map((faq) => (
+          <div >
+            <div class="space-y-3">
+              <div>
+                <p class="font-semibold text-purple-900 lg:mt-0">
+                  {faq.question}
+                </p>
+              </div>
+              <p class="text-sm text-slate-500 mt-5">{faq.answer}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,145 @@
+---
+// Define the content data
+const sections = [
+  {
+    title: "Automation Expertise",
+    description:
+      "Connect with professionals skilled in Zapier, Make (Integromat), and Airtable. Find experts who can build complex automation workflows and integrate multiple platforms seamlessly.",
+  },
+  {
+    title: "Verified No-Code Skills",
+    description:
+      "Every candidate is verified for their automation expertise. We assess their ability to create efficient workflows, handle data management, and implement business logic using no-code tools.",
+  },
+  {
+    title: "Career Growth Focus",
+    description:
+      "Support for continuous learning in automation and integration. Stay updated with the latest no-code tools, automation best practices, and emerging integration platforms.",
+  },
+];
+---
+
+<section>
+  <div
+    class="mx-auto max-w-7xl lg:px-16 md:px-12 px-8 xl:px-24 py-24">
+    <span class="text-sm font-medium tracking-wide text-blue-600 uppercase"
+      >Building Your Automation Team?</span
+    >
+    <h2
+      class="text-purple-900 font-semibold tracking-tight lg:text-5xl mt-6 text-3xl">
+      Find Expert Automation Developers
+    </h2>
+    <div class="lg:gap-12 grid grid-cols-1 lg:grid-cols-2 mt-12 text-slate-500">
+      <p>
+        We specialize in connecting companies with skilled automation experts who excel 
+        in Zapier, Make (Integromat), and Airtable. Our network includes workflow 
+        specialists, integration experts, and automation architects ready to transform 
+        your business processes.
+      </p>
+
+      <p>
+        From building complex multi-step automations to creating robust data management 
+        systems, we help you find professionals who can streamline your operations. Our 
+        candidates bring expertise in API integrations, workflow optimization, and 
+        business process automation.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-4 grid-cols-2 mt-24 gap-3">
+      <div>
+        <img
+          src="/images/zap1.webp"
+          alt="Zapier workflow automation"
+          class="rounded-2xl drop-shadow-2xl hover:-translate-y-6 duration-300 easy-out transition-all"
+        />
+        <img
+          src="/images/www.png"
+          alt="Make.com integration platform"
+          class="drop-shadow-2xl mt-6 hover:-translate-y-6 duration-300 easy-out transition-all"
+        />
+      </div>
+      <div class="lg:col-span-2">
+        <img
+          src="/images/air1.webp"
+          alt="Airtable database management"
+          class="drop-shadow-2x hover:-translate-y-6 duration-300 easy-out transition-all"
+        />
+        <img
+          src="/images/zap2.webp"
+          alt="Complex automation workflows"
+          class="drop-shadow-2xl mt-6 hover:-translate-y-6 duration-300 easy-out transition-all"
+        />
+        <img
+          src="/images/make2.webp"
+          alt="Integration development"
+          class="drop-shadow-2xl mt-6 lg:hidden block hover:-translate-y-6 duration-300 easy-out transition-all"
+        />
+      </div>
+      <div class="hidden lg:block">
+        <img
+          src="/images/air2.webp"
+          alt="Data automation systems"
+          class="drop-shadow-2xl hover:-translate-y-6 duration-300 easy-out transition-all"
+        />
+        <img
+          src="/images/int1.webp"
+          alt="API integration development"
+          class="rounded-2xl drop-shadow-2xl mt-6 hover:-translate-y-6 duration-300 easy-out transition-all"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-purple-900 transform skew-y-6 -mt-72 lg:-mt-[26rem]">
+  <div
+    class="mx-auto max-w-7xl lg:px-16 md:px-12 px-8 xl:px-24 py-24 lg:py-52 items-center transform -skew-y-6">
+    <div>
+      <span class="text-sm font-medium text-slate-300 tracking-wide uppercase"
+        >Complete Automation Solutions</span
+      >
+      <h2
+        class="tracking-tight lg:text-5xl text-white font-semibold mt-6 text-3xl lg:text-balance">
+        Building the Future of Business Automation Together
+      </h2>
+      <div class="max-w-xl mt-6">
+        <p class="text-white">
+          From simple task automation to complex business workflows, we connect you with 
+          professionals who can transform your operations using leading no-code automation platforms.
+        </p>
+      </div>
+    </div>
+    <div
+      class="gap-x-2 gap-y-14 lg:gap-12 grid grid-cols-1 lg:grid-cols-3 mt-12">
+      {
+        sections.map((section) => (
+          <div>
+            <div class="space-y-3">
+              <div>
+                <p class="mt-5 font-semibold text-white text-base">
+                  {section.title}
+                </p>
+              </div>
+              <p class="text-sm text-white">{section.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="mt-16 flex gap-4">
+      <a
+        class="text-white items-center font-medium gap-3 inline-flex focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-none justify-center px-6 lg:px-8 ring-2 ring-transparent focus:ring-offset-2 focus:ring-blue-500 duration-200 py-3.5 rounded-full active:bg-blue-800 active:text-white bg-blue-500 hover:bg-blue-600 w-auto"
+        title="View No-Code Automation Jobs"
+        aria-label="Browse automation and integration jobs"
+        href="/system/overview">
+        View Jobs
+      </a>
+      <a
+        class="text-blue-600 items-center font-medium gap-3 inline-flex focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-none justify-center px-6 lg:px-8 ring-2 ring-transparent focus:ring-offset-2 focus:ring-blue-500 duration-200 py-3.5 rounded-full active:bg-blue-800 active:text-white bg-blue-50 hover:bg-blue-100 w-auto"
+        title="Learn About Our Platform"
+        aria-label="Learn more about our automation job platform"
+        href="/about">
+        About Us
+      </a>
+    </div>
+  </div>
+</section>
